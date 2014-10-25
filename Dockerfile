@@ -3,6 +3,7 @@ FROM centos:centos6
 MAINTAINER kenjiskywalker "https://github.com/kenjiskywalker/docker-centos-ruby-sqlite"
 
 ENV RUBY_VERSION 2.1.3
+ENV MYSQL_RPM_VERSION mysql-community-release-el6-5.noarch.rpm
 
 ### Packages
 RUN yum groupinstall -y "Development tools"
@@ -19,3 +20,10 @@ RUN gem install bundler --no-rdoc --no-ri
 
 # Install sqlite
 RUN yum install -y sqlite sqlite-devel
+
+# add mysql user
+RUN groupadd -r mysql && useradd -r -g mysql mysql
+
+### MySQL install
+RUN yum install -y http://repo.mysql.com/$MYSQL_RPM_VERSION
+RUN yum install -y mysql-community-server mysql-community-devel
