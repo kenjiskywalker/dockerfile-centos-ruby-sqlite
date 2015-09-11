@@ -2,7 +2,7 @@ FROM centos:centos6
 
 MAINTAINER kenjiskywalker "https://github.com/kenjiskywalker/docker-centos-ruby-sqlite"
 
-ENV RUBY_VERSION 2.1.3
+ENV RUBY_VERSION 2.1.4
 ENV MYSQL_RPM_VERSION mysql-community-release-el6-5.noarch.rpm
 
 ### Packages
